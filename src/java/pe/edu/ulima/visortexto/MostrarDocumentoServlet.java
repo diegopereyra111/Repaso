@@ -27,18 +27,17 @@ public class MostrarDocumentoServlet extends HttpServlet {
     protected void doPost(
             HttpServletRequest req,
             HttpServletResponse resp) throws ServletException, IOException {
-        
+
         /*
         1. Recibe parametros del request
         2. Realiza alguna tarea con los parametros
         3. Devuelve una respuesta
-        */
-
+         */
         String titulo = req.getParameter("titulo");
         String contenido = req.getParameter("contenido");
         String tipo = req.getParameter("tipo");
 
-        GestorRenderizado gestor = new GestorRenderizado();
+        GestorRenderizado gestor = GestorRenderizado.getInstance();
         ByteArrayOutputStream baos = gestor.renderizar(titulo, contenido, tipo);
 
         baos.writeTo(resp.getOutputStream());
