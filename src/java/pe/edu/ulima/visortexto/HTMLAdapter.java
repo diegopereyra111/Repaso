@@ -5,6 +5,7 @@ import java.io.IOException;
 
 public class HTMLAdapter implements ModoVisualizacionAdapter {
 
+    @Override
     public ByteArrayOutputStream renderizar(String titulo, String contenido) throws IOException {
         String htmlData = "";
 
